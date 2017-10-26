@@ -8,6 +8,7 @@
  */
 package cs108assigns;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -213,6 +214,44 @@ public class AssignExtend extends CS108Assigns{
         System.out.println("~~~End of Mecha class unit-testing!~~~");
             
     }
+
+    /**
+     * This method is just for assignment five code
+     */
+    public static void Assignment_Five()
+    {
+        System.out.println("Starting assignment five code! \n");
+        ArrayList<Mecha> myMechas = new ArrayList<>();
+        Mecha a = new Mecha();
+        for(int x = 0; x < 5; x++)
+        {
+            myMechas.add(new Mecha());
+        }
+        
+        displayAll_a5(myMechas);
+        
+    }
+    
+    /**
+     * This was used for assignment five
+     * This method takes an ArrayList of Mecha objects and prints there info.
+     * @param x An ArrayList of Mecha objects
+     */
+    public static void displayAll_a5(ArrayList<Mecha> x)
+    {
+        System.out.printf("There are: %d "+ Mecha.class.getSimpleName()+ " in the ArrayList. \n \n", x.size());
+        int b = x.size();
+        
+        for (int a = 0 ; a < b ; a++)
+        {
+            x.get(a).toString();
+            
+        }
+        // x.get(2).toString();
+        System.out.println("\n --- End of display all from/for arraylist ---");
+    }
+
+
     
     
     

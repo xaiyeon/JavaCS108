@@ -30,43 +30,28 @@ public class CS108Assigns {
      */
     public static void main(String[] args) {
         
-        Assignment_Five();
+        Assignment_Six();
         
     } 
     
-    /**
-     * This method is just for assignment five code
-     */
-    public static void Assignment_Five()
-    {
-        System.out.println("Starting assignment five code! \n");
-        ArrayList<Mecha> myMechas = new ArrayList<>();
-        Mecha a = new Mecha();
-        for(int x = 0; x < 5; x++)
-        {
-            myMechas.add(new Mecha());
-        }
+    
+    public static void Assignment_Six(){
         
-        displayAll(myMechas);
+        Character c1 = new Character();
+        Character c2 = new Character();
+        Character c3 = new Character();
+    
+        int a = c1.compareTo(c3);
+        
+        System.out.println(a);
         
     }
     
-    /**
-     * This method takes an ArrayList of Mecha objects and prints there info.
-     * @param x An ArrayList of Mecha objects
-     */
-    public static void displayAll(ArrayList<Mecha> x)
-    {
-        System.out.printf("There are: %d "+ Mecha.class.getSimpleName()+ " in the ArrayList. \n \n", x.size());
-        int b = x.size();
+    // Returns the secondhighest
+    public static void secondHighest(){
         
-        for (int a = 0 ; a < b ; a++)
-        {
-            x.get(a).toString();
-            
-        }
-        // x.get(2).toString();
-        System.out.println("\n --- End of display all from/for arraylist ---");
+        
+    
     }
       
 }

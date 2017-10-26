@@ -12,6 +12,21 @@ package cs108assigns;
  * 
  * @author Royce
  */
-public interface Printable {
+public interface Printable extends Comparable<Character> {
+    
+    @Override
+    public String toString();
+    
+    public void display();
+      
+    public void printToFile();
+    
+    /**
+     * Our compareTo for our character class
+     * @param o A character object
+     * @return Returns an int for character object to compare to from result
+     */
+    @Override
+    public int compareTo(Character o);
     
 }

@@ -11,6 +11,11 @@
  */
 package cs108assigns;
 import java.util.Random;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 /**
  * 
@@ -20,7 +25,7 @@ import java.util.Random;
  * @author Royce
  * 
  */
-public class Character {
+public class Character implements Printable{
     
     /**
      * These are private data types very specific to the character
@@ -224,9 +229,144 @@ public class Character {
         System.out.println("Life Status: " + this.getAlive());
         System.out.println("~~~ End of Character Display Info");  
     }
-    
 
+    
+    /**
+     * Below functions are for Assignment 6
+     * @return 
+     */
+    
+    @Override
+    public String toString(){
+        String sfinal = "";
+        System.out.println("~~~ Character Display Info (toString): ");
+        System.out.println("Name: " + this.getFirstName() + " " + this.getLastName());
+        System.out.println("Gender: " + this.getGender());
+        System.out.println("Age: " + this.getAge());
+        System.out.println("Health Points: " + this.getHealthPoints());
+        System.out.println("Life Status: " + this.getAlive());
+        System.out.println("~~~ End of Character Display Info");        
+        return sfinal;
+    }
+    
+    @Override
+    public void display(){
+        System.out.println("~~~ Character Display Info (Display): ");
+        System.out.println("Name: " + this.getFirstName() + " " + this.getLastName());
+        System.out.println("Gender: " + this.getGender());
+        System.out.println("Age: " + this.getAge());
+        System.out.println("Health Points: " + this.getHealthPoints());
+        System.out.println("Life Status: " + this.getAlive());
+        System.out.println("~~~ End of Character Display Info"); 
+    }
       
+    @Override
+    public void printToFile(){
+        // Turn these on if you want a new text file for each object
+        //String title = this.firstName + Long.toString(this.id);
+        //String filePathString =  "Character " + title + ".txt";
+
+        // Single
+        String filePathString =  "CharactersLog.txt";
+        
+        // Here we will build the string.
+        
+        String characterS = "Character: " + this.firstName + Long.toString(this.id) + "\n"
+                + "Name: "  + this.firstName + " " + this.lastName + "\n" 
+                + "Gender: " + this.gender + "\n"
+                + "Age: " + this.age + "\n"
+                + "HP: " + this.healthPoints + "\n"
+                + "Life: " + this.alive + "\n"
+                + "~~~~~"
+                
+                
+                ;
+        
+        
+        // Print writer for use because of new line
+        PrintWriter pWriter = null;
+
+        File f = new File(filePathString);
+
+        // check to see if file exists, if not create it.
+        if(!f.exists())
+        {
+            try
+                {
+                    f.createNewFile();
+                }
+            catch (IOException ioe)
+                {
+                    ioe.printStackTrace();
+                }         
+        }
+
+        // then we append the new lottery ticket to the text file.
+        try
+            {
+                pWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(f, true), "UTF-8"));
+                pWriter.append(characterS);
+                pWriter.println();
+                pWriter.close();
+            }
+        catch (IOException ioe)
+            {
+                ioe.printStackTrace();
+            }    
+    }  
+    
+     /**
+     * Our compareTo for our character class. Could probably go down the
+     * parameters and compare for each field.
+     * @param o A character object
+     * @return Returns an int for character object to compare to from result
+     */
+    @Override
+    public int compareTo(Character o) {
+        
+        int x = this.getFirstName().compareTo(o.getFirstName());
+        int y = this.getGender().compareTo(o.getGender());
+        
+        // For both x and y
+        int naturalx = 0;
+        int naturaly = 0;
+        
+        if (x == 0)
+        {
+            naturalx = 0;
+        }
+        else if (x > 0){
+            naturalx = 1;
+        }
+        else {
+            naturalx = -1;
+        }
+        
+        if (y == 0)
+        {
+            naturaly = 0;
+        }
+        else if (y > 0){
+            naturaly = 1;
+        }
+        else {
+            naturaly = -1;
+        }
+        
+        if (naturalx == 0 && naturaly == 0)
+        {
+            return 0;
+        }
+        else if (naturalx > 0 && naturaly > 0){
+            return 1;
+        }
+        else {
+            return -1;
+        }
+        
+        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
