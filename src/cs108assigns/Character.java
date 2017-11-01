@@ -16,10 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-<<<<<<< HEAD
 import java.util.concurrent.ThreadLocalRandom;
-=======
->>>>>>> origin/HEAD
 
 /**
  * 
@@ -278,12 +275,8 @@ public class Character implements Printable{
         
         // Here we will build the string.
         
-<<<<<<< HEAD
         String characterS = "Character: " + "\n"
                 + "ID: " + Long.toString(this.id) + "\n"
-=======
-        String characterS = "Character: " + this.firstName + Long.toString(this.id) + "\n"
->>>>>>> origin/HEAD
                 + "Name: "  + this.firstName + " " + this.lastName + "\n" 
                 + "Gender: " + this.gender + "\n"
                 + "Age: " + this.age + "\n"
@@ -330,11 +323,8 @@ public class Character implements Printable{
      /**
      * Our compareTo for our character class. Could probably go down the
      * parameters and compare for each field.
-<<<<<<< HEAD
      * We compare first name, then the gender, and then hp in that order.
      * The Character has to be better in HP, and then the gender and name follow.
-=======
->>>>>>> origin/HEAD
      * @param o A character object
      * @return Returns an int for character object to compare to from result
      */
@@ -343,19 +333,12 @@ public class Character implements Printable{
         
         int x = this.getFirstName().compareTo(o.getFirstName());
         int y = this.getGender().compareTo(o.getGender());
-<<<<<<< HEAD
         int z = this.getHealthPoints().compareTo(o.getHealthPoints());
         
         // For both x is firstname and y is gender and z is hp
         int naturalx = 0;
         int naturaly = 0;
         int naturalz = 0;
-=======
-        
-        // For both x and y
-        int naturalx = 0;
-        int naturaly = 0;
->>>>>>> origin/HEAD
         
         if (x == 0)
         {
@@ -378,7 +361,6 @@ public class Character implements Printable{
         else {
             naturaly = -1;
         }
-<<<<<<< HEAD
 
         if (z == 0)
         {
@@ -401,14 +383,6 @@ public class Character implements Printable{
             return 0;
         }
         else if (naturalx > 0 && naturaly > 0 && naturalz > 0){
-=======
-        
-        if (naturalx == 0 && naturaly == 0)
-        {
-            return 0;
-        }
-        else if (naturalx > 0 && naturaly > 0){
->>>>>>> origin/HEAD
             return 1;
         }
         else {
