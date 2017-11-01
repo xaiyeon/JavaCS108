@@ -8,6 +8,7 @@
  */
 package cs108assigns;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -81,7 +82,7 @@ public class AssignExtend extends CS108Assigns{
         System.out.println("UPDATE: Changing Character with ID: " + Test1.getID() + " which is " + Test1.getFirstName() + " " + Test1.getLastName());
         System.out.println();
         Test1.setAge(19);
-        Test1.setHealthPoints(999);
+        Test1.setHealthPoints((double)999);
         Test1.setGender("Female");
         Test1.setFirstName("Kizuna");
         Test1.setLastName("AI");
@@ -90,7 +91,7 @@ public class AssignExtend extends CS108Assigns{
         System.out.println();
         System.out.println("UPDATE: Custom character creation");
         System.out.println();
-        Character Test3 = new Character(1, "Thomas", "Smith", "Male", 23, 250, true);
+        Character Test3 = new Character(1, "Thomas", "Smith", "Male", 23, (double)250, true);
         Test3.displayCharacterInfo();
         System.out.println();
     }    
@@ -181,7 +182,7 @@ public class AssignExtend extends CS108Assigns{
         m1.toString();
         System.out.println("");
         m1.setGender("Apache Helicopter");
-        m1.setHealthPoints(999);
+        m1.setHealthPoints((double)999);
         m1.setBuildYear(2020);
         m1.setCpuType("Atmel");
         m1.setmModel("WEP-MK2");
@@ -213,6 +214,44 @@ public class AssignExtend extends CS108Assigns{
         System.out.println("~~~End of Mecha class unit-testing!~~~");
             
     }
+
+    /**
+     * This method is just for assignment five code
+     */
+    public static void Assignment_Five()
+    {
+        System.out.println("Starting assignment five code! \n");
+        ArrayList<Mecha> myMechas = new ArrayList<>();
+        Mecha a = new Mecha();
+        for(int x = 0; x < 5; x++)
+        {
+            myMechas.add(new Mecha());
+        }
+        
+        displayAll_a5(myMechas);
+        
+    }
+    
+    /**
+     * This was used for assignment five
+     * This method takes an ArrayList of Mecha objects and prints there info.
+     * @param x An ArrayList of Mecha objects
+     */
+    public static void displayAll_a5(ArrayList<Mecha> x)
+    {
+        System.out.printf("There are: %d "+ Mecha.class.getSimpleName()+ " in the ArrayList. \n \n", x.size());
+        int b = x.size();
+        
+        for (int a = 0 ; a < b ; a++)
+        {
+            x.get(a).toString();
+            
+        }
+        // x.get(2).toString();
+        System.out.println("\n --- End of display all from/for arraylist ---");
+    }
+
+
     
     
     

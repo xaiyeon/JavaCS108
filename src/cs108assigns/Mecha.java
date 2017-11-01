@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * which is for robots and machines.
  * @author Royce
  */
-public class Mecha extends Character {
+public class Mecha extends Character /*implements Comparable<Mecha>*/{
     
     private String cpuType;
     private int buildYear;
@@ -185,7 +185,7 @@ public class Mecha extends Character {
     public boolean equals(Mecha m)
     {
         System.out.println("Mechas are considered same if same year and model.");
-        if((this.buildYear == m.buildYear) && (this.mModel == m.mModel))
+        if((this.buildYear == m.buildYear) && (this.mModel == null ? m.mModel == null : this.mModel.equals(m.mModel)))
         {
             System.out.println("Mechas: " + this.firstName + " " + this.lastName + " and " + m.firstName + " " + m.lastName + " are the same Mecha.");
             return true;
@@ -197,6 +197,17 @@ public class Mecha extends Character {
         }
                 
     }    
+
+    
+    /**
+     * This is our implementation that will compare our awesome mechas
+     * against each other
+     * @param o An object Mecha
+     * @return Returns an int, so basically a value for comparison
+     */
+    public int compareTo(Mecha o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

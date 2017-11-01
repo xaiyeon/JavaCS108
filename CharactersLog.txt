@@ -1,0 +1,24 @@
+Character: 
+ID: 973
+Name: NPC973 A.I.
+Gender: Male
+Age: 65
+HP: 191.0
+Life: true
+~~~~~
+Character: 
+ID: 946
+Name: NPC946 A.I.
+Gender: Male
+Age: 68
+HP: 132.0
+Life: true
+~~~~~
+Character: 
+ID: 424
+Name: NPC424 A.I.
+Gender: Female
+Age: 42
+HP: 142.0
+Life: true
+~~~~~
