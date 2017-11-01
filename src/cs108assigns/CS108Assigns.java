@@ -53,6 +53,7 @@ public class CS108Assigns {
         
     } 
     
+<<<<<<< HEAD
     /**
      * For this assignment we create generic method for handling different
      * types of data. I modified my classes such as Character and Mecha to fit
@@ -64,6 +65,18 @@ public class CS108Assigns {
         String aString = randomStrings[ThreadLocalRandom.current().nextInt(0, randomStrings.length)];
         String bString = randomStrings[ThreadLocalRandom.current().nextInt(0, randomStrings.length)];
         String cString = randomStrings[ThreadLocalRandom.current().nextInt(0, randomStrings.length)];
+=======
+    
+    public static void Assignment_Six(){
+        
+        Character c1 = new Character();
+        Character c2 = new Character();
+        Character c3 = new Character();
+    
+        int a = c1.compareTo(c3);
+        
+        System.out.println(a);
+>>>>>>> origin/HEAD
         
         int aInt = ThreadLocalRandom.current().nextInt(-100, 100);
         int bInt = ThreadLocalRandom.current().nextInt(-100, 100);
@@ -73,6 +86,7 @@ public class CS108Assigns {
         Character c2 = new Character();
         Character c3 = new Character();
     
+<<<<<<< HEAD
         // Start
         
         System.out.println("Lets do max of Strings!");
@@ -116,6 +130,13 @@ public class CS108Assigns {
         System.out.println("Thank you!");
         // End
               
+=======
+    // Returns the secondhighest
+    public static void secondHighest(){
+        
+        
+    
+>>>>>>> origin/HEAD
     }
 
     // Generic method that handles different object types
