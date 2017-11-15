@@ -6,7 +6,7 @@
 package cs108assigns;
 
 /**
- *
+ * Used for assignment #7 which is about thanksgiving!
  * @author Royce
  */
 public class Turkey {
