@@ -44,10 +44,26 @@ public class CS108Assigns {
         
     } 
     
-    
-    // This is for assignment seven which is about the turkey stuff!
+    /**
+     * I was going to do merge sort for optimization but dropped it.
+     * I then did selection sort which is okay because the arraylist is small.
+     * If the arraylist was bigger the search of n^2 is slow.
+     * From Wiki:
+     * Selection sort is good for lists less than 20 elements.
+     * 
+     * This is for assignment seven which is about the turkey stuff!
+     * So sorry about the messy comments for this assignment...
+     * 
+     * Also I'm sorry for not showing up to class this week!
+     * I go to my other class office hours and it conflicts with this classes time,
+     * but I need the help for my other projects.
+     * 
+     */
     public static void Assignment_Seven(){
  
+        // Some variables
+        int find = 0;
+        final int eatWhat = 32;
         
         ArrayList<Turkey> turkeys = new ArrayList<Turkey>();
 
@@ -59,16 +75,45 @@ public class CS108Assigns {
         turkeys.add(new Turkey("Norbest", 10));
         turkeys.add(new Turkey("Vons O Organics", 38));
         
-        System.out.println("Eating turkey test");
-        eatTurkey(turkeys.get(1));
+        System.out.println("Welcome to the Thanksgiving Turkey program thingy...");
+
+        System.out.println("The turkeys array list before: ");
+        for(int a = 0; a < turkeys.size(); a++)
+        {
+            System.out.println(turkeys.get(a).getType() + ": " + turkeys.get(a).getWeight());
+        }
         
-        //mergeSort_sign7()
+        // Calling our selectionsort
+        selectionSort(turkeys, turkeys.size() - 1);
+        /* initial call to mergesort with index */
+        //mergeSort_sign7(turkeys, 0, turkeys.size() - 1);
+
+        System.out.println();
+        System.out.println("The turkeys array list after sorting: ");
+        for(int a = 0; a < turkeys.size(); a++)
+        {
+            System.out.println(turkeys.get(a).getType() + ": " + turkeys.get(a).getWeight());
+        }
         
-        binarySearch(turkeys, turkeys.size(), 20);
-    
+        System.out.println();
+        System.out.println("Now we be looking for a turkey...");
+        find = binarySearch(turkeys, turkeys.size() - 1, eatWhat);
+        
+        // simple if else if we didn't find a turkey with that weight.
+        if(find == -1){
+            System.out.println("Sorry we can't eat a non-existant turkey yet.");
+        } else {
+            System.out.println("Time to eat!");
+            System.out.println("Gobble Gobble, there are " + turkeys.get(find).getWeight() + " lbs. of " + turkeys.get(find).getType() + " turkey!");
+            eatTurkey(turkeys.get(find));
+        }
+        
+        System.out.println();
+        System.out.println("Happy Thanksgiving!");
+        
     }
  
-        // TODO: Need to add 3 methods and binary search
+    // TODO: Need to add 3 methods and binary search
     // sorting, binary search, and recursive method for eating turkey
     
     // Binary search for looking for turkeys
@@ -81,8 +126,7 @@ public class CS108Assigns {
     // Sort, any method
     // sorting method to sort th ArrayList of Turkey objects by weight (lowest to highest)
    
-    // Merge sorting from Zybooks example
-    
+    // Merge sorting from Zybooks example, dropped this one...
    public static void merge_sign7(ArrayList<Turkey> turkeys, int i, int j, int k) {
       int mergedSize = k - i + 1;       // Size of merged partition
       ArrayList<Turkey> mergeTurkeys = new ArrayList<Turkey>(); // Temporary array list for merged turkeys
@@ -124,6 +168,7 @@ public class CS108Assigns {
       // Copy merge number back to numbers
       for (mergePos = 0; mergePos < mergedSize; ++mergePos) {
          turkeys.add(mergeTurkeys.get(mergePos));
+         // basically turkey add as above
          // numbers[i + mergePos] = mergeTurkeys[mergePos];
       }
    }
@@ -143,8 +188,35 @@ public class CS108Assigns {
       }
    }    
     
+   // Customized for turkey and arraylist
+   // So we know we want to get the indexof the turkey and use that comparison
+   // of the weight for switching and such.
+   public static void selectionSort(ArrayList<Turkey> turkeys, int numbersSize) {
+      int i = 0;
+      int j = 0;
+      int indexSmallest = 0;
+      // temp turkey for swapping...
+      Turkey temp = new Turkey("temp", 0);
+
+      for (i = 0; i < numbersSize; ++i) {
+          
+         // Find index of smallest remaining element
+         indexSmallest = i;
+         for (j = i + 1; j < numbersSize; ++j) {
+
+            if (turkeys.get(j).getWeight() < turkeys.get(indexSmallest).getWeight()) {
+               indexSmallest = j;
+            }
+         }
+
+         // Swap turkey[i] and turkey[indexSmallest]
+         temp = turkeys.get(i);
+         turkeys.set(i, turkeys.get(indexSmallest));         
+         turkeys.set(indexSmallest, temp);
+      }
+   }
    
-   // Binary Search
+   // Binary Search from zybooks modified for turkeys.
    public static int binarySearch(ArrayList<Turkey> turkeys, int numbersSize, int key) {
       int mid = 0;
       int low = 0;
@@ -161,7 +233,7 @@ public class CS108Assigns {
             high = mid - 1;
          } 
          else {
-            System.out.println("A turkey at index " + turkeys.get(mid) + " was found.");
+            System.out.println("A turkey at index: " + mid + " of " + turkeys.getClass().getSimpleName().toString() + " was found.");
             return mid;
          }
       }
