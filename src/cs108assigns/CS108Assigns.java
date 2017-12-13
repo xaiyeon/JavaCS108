@@ -14,6 +14,7 @@
  * 
  * THIS IS THE MAIN JAVA FILE THAT CONTAINS MAIN.
  * assigment 8 has main in HolidayDinner
+ * assignment 8 uses HolidayDinner, HolidayHash, and Food .java files.
  *
  */
 package cs108assigns;
@@ -39,6 +40,7 @@ public class CS108Assigns {
     /**
      * @param args the command line arguments
      */
+    /**
     public static void main(String[] args) {
                         // Search date
                         Calendar calendar = Calendar.getInstance();
@@ -50,6 +52,6 @@ public class CS108Assigns {
                         System.out.println(month + "_" + day + "_" + year);
         
     } 
-    
+    */
      
 }
