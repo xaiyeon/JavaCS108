@@ -6,30 +6,42 @@
 package cs108assigns;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javatuples
+
 /**
  *
  * @author Xaiyeon
  */
 public class HolidayHash {
 
-    private final Hashtable FoodHashTable = new Hashtable();
+    private final Map<Integer,ArrayList<Food>> FoodHashTable = new HashMap<Integer,ArrayList<Food>>();
     //private ArrayList<Food> bucketList = new ArrayList<Food>();
+    //Multimap<String, String> mm = HashMultimap.create();
     
 public void insert(Food food){
+    ArrayList<Food> foodlist = new ArrayList<Food>();
     int bucketindexList = 0;
     bucketindexList = hash(food);
-    FoodHashTable.put(bucketindexList, food);
+    FoodHashTable.put(bucketindexList, foodlist);
 }
     
 public void search(Food food){
     int bucketindexList = 0;
     bucketindexList = hash(food);
-    int key;
-    int value = food.getCalories();
+    // Look for key index
+    if(FoodHashTable.containsKey(bucketindexList)){
+        System.out.println(food.getName() + " with " + food.getCalories() + 
+                " was found " + "in index: " + FoodHashTable.get(bucketindexList));
+    } else{
+        System.out.println("No food with that key was found.");
+    }
+    
+    // Not sure if this was going to work, discarded...
     //int s = FoodHashTable.get(bucketindexList);
 //    for(Map.Entry entry: FoodHashTable.entrySet()){
 //        if(entry.getValue().equals(value)){
