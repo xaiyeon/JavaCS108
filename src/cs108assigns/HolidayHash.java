@@ -43,40 +43,41 @@ public void insert(Food food){
     
 public void search(Food food){
     int bucketindexList = 0;
+    boolean did_not_find = false;
+    boolean did_find = false;
     bucketindexList = hash(food);
     // Look for key index
         for (Entry<Integer, ArrayList<Food>> entry : FoodHashTable.entrySet()) {
-        ArrayList<Food> v = entry.getValue();
-        if (v.contains(food.getCalories())){
-            //System.out.println(entry.getKey());
-            System.out.println(food.getName() + " with " + food.getCalories() + " was found " + "in index: " + entry.getKey());
-            break;
-        } else {
+        // since we know it's in int calories
+            for(int x = 0; x < entry.getValue().size(); x++){
+                if (entry.getValue().get(x).getName().equals(food.getName()) && entry.getValue().get(x).getCalories() == food.getCalories()){
+                    //System.out.println(entry.getKey());
+                    System.out.println(food.getName() + " with " + food.getCalories() + " calories " + "was found " + "in index: " + entry.getKey());
+                    // if we find
+                    did_find = true;
+                }
+                else {
+                    // if didn't find
+                    did_not_find = true;                
+                }
+            }      
+        } 
+        // If didn't find
+        if (did_not_find && !did_find){
             // We didn't find it at all
-            System.out.println("No food with that key was found.");
-            break;
+            System.out.println("The food: " + food.toString() + " with that key does not exist.");
         }
-    }
-    
-    // Not sure if this was going to work, discarded...
-    //int s = FoodHashTable.get(bucketindexList);
-//    for(Map.Entry entry: FoodHashTable.entrySet()){
-//        if(entry.getValue().equals(value)){
-//            key = (int) entry.getKey();
-//            break; //breaking because its one to one map
-//        }
-//    }
 
 }
 
 public void remove(Food food){
-    // Now we just remove the list if the size is only <= 1 
     int bucketindexList = 0;
     bucketindexList = hash(food);
     // if it already exists check the list of the size
     if (FoodHashTable.containsKey(bucketindexList)){
         // we get the list and add it on
         int size_of_list = FoodHashTable.get(bucketindexList).size();
+        // Now we just remove the list if the size is only <= 1 
         if (size_of_list <= 1){
             // Since the list has one item, remove the whole thing from map
             FoodHashTable.remove(bucketindexList);
@@ -102,7 +103,9 @@ public void remove(Food food){
  */
 public Integer hash(Food food){
     int key_value;
-    return key_value = food.getCalories() % 3;
+    // instead of this, lets just use calories as the key
+    // return key_value = food.getCalories() % 3;
+    return food.getCalories();
 }
 
 public void display(){
@@ -111,7 +114,7 @@ public void display(){
     // This will display our values in our hashmap
     for(Map.Entry<Integer, ArrayList<Food>> e : FoodHashTable.entrySet()){
         for(Food e1 : e.getValue()){
-           System.out.println(e.getKey() + " = "+ e1.toString());
+           System.out.println("Key: " + e.getKey() + " = " + e1.toString());
         }
 }
 

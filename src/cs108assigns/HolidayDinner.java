@@ -6,6 +6,13 @@
  * Learning Hashmap, HashTable, Map, Multi-Hashmap,
  * These are like dictionaries in other languages.
  * 
+ * I used a HashMap because it made sense for me and
+ * pick up. I tried to do a HashTable, but I got confused...
+ * 
+ * HashMap is okay because it allows null values for the key
+ * and value, and is non-synchronized, which means HashMap is
+ * better for our application since it's only one 1 thread.
+ * 
  */
 package cs108assigns;
 
@@ -13,7 +20,7 @@ import java.util.Calendar;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- *
+ * Used for Assignment 8
  * @author Royce
  */
 public class HolidayDinner {
@@ -53,6 +60,8 @@ public class HolidayDinner {
         Food f9 = new Food( "Water" , 50);
         Food f10 = new Food( "Juice" , 50);
         Food f11 = new Food( "Beer" , 50);
+        // A food to prove my search function works.
+        Food s1 = new Food("FakeFood", 42);
         
         // now we insert all of them into the hashmap.
         holihash.insert(f1);
@@ -67,6 +76,7 @@ public class HolidayDinner {
         holihash.insert(f10);
         holihash.insert(f11);
         
+        
         // Lets see what we have so far.
         holihash.display();
         
@@ -79,19 +89,22 @@ public class HolidayDinner {
         // Search for a food.
         System.out.println("Now we are searching for " + f10.getName());
         holihash.search(f10);
+        System.out.println("Now we are searching for " + s1.getName());
+        holihash.search(s1);
         
         // Lets see what we have so far.
         holihash.display();
         
         System.out.println("");
         // A date 
+        System.out.print("Happy Holidays Mr. Gappy! - ");
         Calendar calendar = Calendar.getInstance();
         long year = calendar.get(Calendar.YEAR);
         long month = calendar.get(Calendar.MONTH) + 1;
         long day = calendar.get(Calendar.DAY_OF_MONTH);        
-        System.out.println(month + "_" + day + "_" + year);
+        System.out.print(month + "_" + day + "_" + year);
         
-        
+        System.out.println("");
                         
         
     } 
