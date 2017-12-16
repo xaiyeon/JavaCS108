@@ -10,7 +10,7 @@ package cs108assigns;
 
 /**
  *
- * @author Xaiyeon
+ * @author Royce
  */
 public class Food {
     
