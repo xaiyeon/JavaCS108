@@ -25,11 +25,10 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class HolidayDinner {
   
-     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Some variables used for random
+    
+    public void assignment_8(){
+    
+               // Some variables used for random
         int rand = 0;
         
         // Creating our new HolidayHash.
@@ -105,8 +104,9 @@ public class HolidayDinner {
         System.out.print(month + "_" + day + "_" + year);
         
         System.out.println("");
-                        
-        
-    } 
+                      
+
+}
     
+        
 }

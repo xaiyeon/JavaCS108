@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * which is for robots and machines.
  * @author Royce
  */
-public class Mecha extends Character /*implements Comparable<Mecha>*/{
+public class Mecha extends Character {
     
     private String cpuType;
     private int buildYear;

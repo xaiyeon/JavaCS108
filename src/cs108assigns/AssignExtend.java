@@ -23,12 +23,12 @@ public class AssignExtend extends CS108Assigns{
     // Assignment #6
     // These will be wrapped around another class for AssignExtend later
     // The below ArrayList are specific for use for Assignment #6
-    public static ArrayList<Character> CharacterList = new ArrayList<Character>();
-    public static ArrayList<Integer> intList = new ArrayList<Integer>();
-    public static ArrayList<String> stringList = new ArrayList<String>();
+    public ArrayList<Character> CharacterList = new ArrayList<Character>();
+    public ArrayList<Integer> intList = new ArrayList<Integer>();
+    public ArrayList<String> stringList = new ArrayList<String>();
     
     // Used just for assignment #6
-    public static String[] randomStrings = {"apple", "are", "boo", "boat", "car", "desk", "go", "java", "python", "ruby", "swift", "yorick"};
+    public String[] randomStrings = {"apple", "are", "boo", "boat", "car", "desk", "go", "java", "python", "ruby", "swift", "yorick"};
     
      /**
      * Assignment one is for the lottery
@@ -231,7 +231,7 @@ public class AssignExtend extends CS108Assigns{
     /**
      * This method is just for assignment five code
      */
-    public static void Assignment_Five()
+    public void Assignment_Five()
     {
         System.out.println("Starting assignment five code! \n");
         ArrayList<Mecha> myMechas = new ArrayList<>();
@@ -250,7 +250,7 @@ public class AssignExtend extends CS108Assigns{
      * This method takes an ArrayList of Mecha objects and prints there info.
      * @param x An ArrayList of Mecha objects
      */
-    public static void displayAll_a5(ArrayList<Mecha> x)
+    public void displayAll_a5(ArrayList<Mecha> x)
     {
         System.out.printf("There are: %d "+ Mecha.class.getSimpleName()+ " in the ArrayList. \n \n", x.size());
         int b = x.size();
@@ -340,7 +340,7 @@ public class AssignExtend extends CS108Assigns{
      * @param z a parameter of any object
      * @return 
      */
-   public static <genVar extends Comparable<genVar>> genVar maxHighest(genVar x, genVar y, genVar z) {
+   public <genVar extends Comparable<genVar>> genVar maxHighest(genVar x, genVar y, genVar z) {
       
        // arraylist for storing items from high to lowest
        ArrayList<genVar> order = new ArrayList<>();
@@ -439,7 +439,7 @@ public class AssignExtend extends CS108Assigns{
      * but I need the help for my other projects.
      * 
      */
-    public static void Assignment_Seven(){
+    public void Assignment_Seven(){
  
         // Some variables
         int find = 0;
@@ -507,7 +507,7 @@ public class AssignExtend extends CS108Assigns{
     // sorting method to sort th ArrayList of Turkey objects by weight (lowest to highest)
    
     // Merge sorting from Zybooks example, dropped this one...
-   public static void merge_sign7(ArrayList<Turkey> turkeys, int i, int j, int k) {
+   public void merge_sign7(ArrayList<Turkey> turkeys, int i, int j, int k) {
       int mergedSize = k - i + 1;       // Size of merged partition
       ArrayList<Turkey> mergeTurkeys = new ArrayList<Turkey>(); // Temporary array list for merged turkeys
       int mergePos = 0;                 // Position to insert merged number
@@ -553,7 +553,7 @@ public class AssignExtend extends CS108Assigns{
       }
    }
 
-   public static void mergeSort_sign7(ArrayList<Turkey> turkeys, int i, int k) {
+   public void mergeSort_sign7(ArrayList<Turkey> turkeys, int i, int k) {
       int j = 0;
 
       if (i < k) {
@@ -571,7 +571,7 @@ public class AssignExtend extends CS108Assigns{
    // Customized for turkey and arraylist
    // So we know we want to get the indexof the turkey and use that comparison
    // of the weight for switching and such.
-   public static void selectionSort(ArrayList<Turkey> turkeys, int numbersSize) {
+   public void selectionSort(ArrayList<Turkey> turkeys, int numbersSize) {
       int i = 0;
       int j = 0;
       int indexSmallest = 0;
@@ -597,7 +597,7 @@ public class AssignExtend extends CS108Assigns{
    }
    
    // Binary Search from zybooks modified for turkeys.
-   public static int binarySearch(ArrayList<Turkey> turkeys, int numbersSize, int key) {
+   public int binarySearch(ArrayList<Turkey> turkeys, int numbersSize, int key) {
       int mid = 0;
       int low = 0;
       int high = 0;
@@ -624,7 +624,7 @@ public class AssignExtend extends CS108Assigns{
     
     // Eat turkey until gone
     // Recursive method
-    public static Turkey eatTurkey(Turkey t) {
+    public Turkey eatTurkey(Turkey t) {
         
         // base case
         if (t.getWeight() <= 0){

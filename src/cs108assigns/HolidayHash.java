@@ -86,8 +86,7 @@ public void remove(Food food){
             // the last added one.
             // Now we get the name and remove that from the list
             //int which_food = FoodHashTable.get(bucketindexList).indexOf(food.getName());
-            FoodHashTable.get(bucketindexList).remove(food);
-        
+            FoodHashTable.get(bucketindexList).remove(food);    
         }
     }
     else {
