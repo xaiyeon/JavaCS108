@@ -46,6 +46,7 @@ public class CS108Assigns {
     public static void main(String[] args) {
 
         // Variables
+        boolean start = true;
         int assignment = 0;
         Scanner user_input = new Scanner(System.in);
         
@@ -66,7 +67,7 @@ public class CS108Assigns {
         System.out.println("Then that number corresponds to the assignment number to be executed.");
         System.out.println("Type and enter 0 (zero) to quit");
         
-        while(true){
+        while(start){
             System.out.println("Menu: Please enter a number for assignment 1 to 8! Or 0 to quit.");
             assignment = check_input();
 
@@ -121,6 +122,7 @@ public class CS108Assigns {
                         break;
                         
                 default: System.out.println("Menu: Thank you for using CS108 Assignment Program!");
+                         start = false;
 
             }
 

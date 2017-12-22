@@ -22,3 +22,11 @@ Age: 42
 HP: 142.0
 Life: true
 ~~~~~
+Character: 
+ID: 364
+Name: NPC364 A.I.
+Gender: Unknown
+Age: 33
+HP: 149.0
+Life: true
+~~~~~
